@@ -1,0 +1,146 @@
+<html ng-app="myApp">
+    <head>
+        <title>Cascading Dropdowns in AngularJs :devzone.co.in </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            var app = angular.module('myApp', []);
+app.controller('CountryCntrl',
+            function ($scope) {
+                $scope.countries = {
+                    'India': {
+                        'Maharashtra': ['Pune', 'Mumbai', 'Nagpur', 'Akola'],
+                        'Madhya Pradesh': ['Indore', 'Bhopal', 'Jabalpur'],
+                        'Rajasthan': ['Jaipur', 'Ajmer', 'Jodhpur']
+                    },
+                    'USA': {
+                        'Alabama': ['Montgomery', 'Birmingham'],
+                        'California': ['Sacramento', 'Fremont'],
+                        'Illinois': ['Springfield', 'Chicago']
+                    },
+                    'Australia': {
+                        'New South Wales': ['Sydney'],
+                        'Victoria': ['Melbourne']
+                    }
+                };
+            })
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div class="panel panel-primary">
+      <div class="panel-heading">Form Header</div>
+      <div class="panel-body">
+    
+        <div class="row" ng-controller="CountryCntrl">
+            <div class="col-sm-4">
+                Area: 
+                <select id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                    <option value=''>Select</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                Zones: <select id="state" ng-disabled="!states" ng-model="cities" ng-options="state for (state,city) in states"><option value=''>Select</option></select>
+            </div>
+            <div class="col-sm-4">
+                Location: <select id="city" ng-disabled="!cities || !states" ng-model="city" ng-options="city for city in cities"><option value=''>Select</option> </select>      
+            </div>
+            <!--<div class="col-sm-4">
+                City: <select id="city" ng-disabled="!cities || !states" ng-model="city"><option value=''>Select</option> <option ng-repeat="city in cities" value='{{city}}'>{{city}}</option></select>        
+            </div>-->
+        </div><br>
+            <div class="row">
+        <div class="col-sm-4" >
+            Work Order / Permit Number: 
+        </div>
+                 <div class="col-sm-4" >
+            Discipline: 
+        </div>
+                </div>
+            <div class="row">
+        <div class="col-sm-4" >
+            <input type="text" ng-model="permit">
+        </div>
+                <div class="col-sm-4" ><select id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                    <option value=''>Select</option>
+                    </select>
+                    </div>
+                </div>
+             <div class="row">
+        <div class="col-sm-4" >
+            
+        </div>
+                <div class="col-sm-4" >
+                    Type:
+                    </div>
+                </div>
+             <div class="row">
+        <div class="col-sm-4" >
+        </div>
+                <div class="col-sm-4" ><select id="state" ng-disabled="!states" ng-model="cities" ng-options="state for (state,city) in states"><option value=''>Select</option></select>
+                    </div>
+                </div>
+            <div class="row">
+        <div class="col-sm-4" >
+            Model Assessor Name: 
+        </div>
+                 <div class="col-sm-4" >
+            Model Approver Name: 
+        </div>
+                </div>
+            <div class="row">
+        <div class="col-sm-4" >
+            <input type="text" ng-model="Assessor"> 
+        </div>
+                 <div class="col-sm-4" >
+            <input type="text" ng-model="Approver"> 
+        </div>
+            </div>
+            <div class="row">
+        <div class="col-sm-4" >
+            Assessor's Name: 
+        </div>
+                 <div class="col-sm-4" >
+            Date of Assessment: 
+        </div>
+                <div class="col-sm-4" >
+            Date of Review: 
+        </div>
+                </div>
+            <div class="row">
+        <div class="col-sm-4" >
+            <input type="text" ng-model="AssessorName"> 
+        </div>
+                 <div class="col-sm-4" >
+            <input type="text" ng-model="DOA"> 
+        </div>
+                <div class="col-sm-4" >
+            <input type="text" ng-model="DOR"> 
+        </div>
+            </div><br>
+          <div class="row btn-group btn-group-justified">
+        <div class="col-sm-2" >
+            <input type="button" class="btn btn-primary btn-md" ng-model="Employee" value="Employee" width="16.66666666667%"> 
+        </div>
+                 <div class="col-sm-2" >
+            <input type="button" class="btn btn-primary btn-md" ng-model="Contractor" value="Contractor" width="16.66666666667%"> 
+        </div>
+                <div class="col-sm-2" >
+            <input type="button"  class="btn btn-primary btn-md" ng-model="Public" value="Public" width="16.66666666667%"> 
+        </div>
+              <div class="col-sm-2" >
+            <input type="button" class="btn btn-primary btn-md" ng-model="Visitor" value="Visitor" width="16.66666666667%">
+        </div>
+                 <div class="col-sm-2" >
+            <input type="button" class="btn btn-primary btn-md" ng-model="YoungPerson" value="Young Person" width="16.66666666667%"> 
+        </div>
+                <div class="col-sm-2" >
+            <input type="button" class="btn btn-primary btn-md" ng-model="Mother" value="New / Expectant Mothers" width="16.66666666667%">
+        </div>
+            </div>
+        </div>
+        </div>
+ </div>
+    </body>
+</html>
